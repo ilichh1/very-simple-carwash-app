@@ -6,67 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <string-array id="marcas" name="marcas">
-        <item>Ford</item>
-        <item>Subaru</item>
-        <item>Honda</item>
-    </string-array>
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Autolavado"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="20dp" />
-
-    <Space
-        android:id="@+id/space"
-        android:layout_width="350dp"
-        android:layout_height="29dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.172"
+        />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="16px"
         android:text="Seleccione"
+        android:layout_marginLeft="16dp"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/space"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="395dp"
-        android:layout_height="111dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioLavado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lavado" />
+            android:text="Lavado $60" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioAspirado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aspirado" />
+            android:text="Aspirado $60" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:checked="true"
+            android:id="@+id/radioLavadoAspirado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lavado y Aspirado" />
-
+            android:text="Lavado y Aspirado $120" />
     </RadioGroup>
 
     <View
@@ -76,6 +67,8 @@
         android:layout_marginTop="32dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
@@ -83,27 +76,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:paddingLeft="16px"
-        android:text="Opcionales"
+        android:layout_marginLeft="16dp"
         android:textSize="24sp"
+        android:text="Opcionales"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkDetallado"
         android:layout_width="399dp"
         android:layout_height="43dp"
         android:text="Detallado"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:layout_editor_absoluteX="6dp" />
+        android:checked="true"
+        />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/checkAspirado"
         android:layout_width="399dp"
         android:layout_height="43dp"
         android:text="Aspirado"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox"
-        tools:layout_editor_absoluteX="6dp" />
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkDetallado"
+        />
 
     <View
         android:id="@+id/divider2"
@@ -111,7 +113,9 @@
         android:layout_height="1dp"
         android:layout_marginTop="32dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkAspirado"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
@@ -122,6 +126,8 @@
         android:paddingLeft="16px"
         android:text="Modelo y marca"
         android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -131,18 +137,35 @@
         android:layout_height="wrap_content"
         android:text="Placas"
         android:textSize="18sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:layout_editor_absoluteX="6dp" />
+        app:layout_constraintEnd_toStartOf="@+id/editPlacas"
+        app:layout_constraintBottom_toBottomOf="@+id/editPlacas"
+        />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="342dp"
-        android:layout_height="43dp"
+        android:id="@+id/editPlacas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:text="kee-123-123" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="kee-123-123"
+        />
+
+    <Spinner
+        android:id="@+id/spinnerMarcas"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:entries="@array/marcas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPlacas"
+        />
 
     <Button
         android:id="@+id/button"
@@ -150,17 +173,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="TICKET"
+        android:onClick="onTicketClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner3"
-        android:layout_width="fill_parent"
-        android:layout_height="36dp"
-        android:entries="@array/country_arrays"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
