@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val aspiradoId = R.id.radioAspirado
         val lavadoAspiradoId = R.id.radioLavadoAspirado
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
-        val checkDetallado = findViewById<CheckBox>(R.id.checkDetallado)
+            val checkDetallado = findViewById<CheckBox>(R.id.checkDetallado)
         val checkAspirado = findViewById<CheckBox>(R.id.checkAspirado)
         val editPlaca = findViewById<EditText>(R.id.editPlacas)
         val spinnerMarca = findViewById<Spinner>(R.id.spinnerMarcas)
@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity() {
         when(radioGroup.checkedRadioButtonId) {
             lavadoId -> bundle.putString("selectedOption", "lavado")
             aspiradoId -> bundle.putString("selectedOption", "aspirado")
-            lavadoAspiradoId -> bundle.putString("selectedOption", "aspirado")
+            lavadoAspiradoId -> bundle.putString("selectedOption", "lavadoAspirado")
         }
-        bundle.putBoolean("isDetalladoSelected", checkDetallado.isSelected)
-        bundle.putBoolean("isAspiradoSelected", checkAspirado.isSelected)
+        bundle.putBoolean("isDetalladoSelected", checkDetallado.isChecked)
+        bundle.putBoolean("isAspiradoSelected", checkAspirado.isChecked)
         bundle.putString("placa", editPlaca.text.toString())
         bundle.putString("marca", spinnerMarca.selectedItem as String)
         // val intento = Intent(this, TicketActivity.class)
